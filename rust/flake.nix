@@ -37,6 +37,7 @@
 
         # For `nix develop`:
         devShell = pkgs.mkShell {
+          name = "rust-env";
           nativeBuildInputs = with pkgs; [
             rustc
             cargo

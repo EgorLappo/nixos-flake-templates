@@ -1,0 +1,10 @@
+[workspace]
+authors = ["Egor Lappo <egor@egor.moe>"]
+channels = ["conda-forge", "bioconda"]
+name = "pixi"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]

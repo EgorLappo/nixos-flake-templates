@@ -13,9 +13,11 @@
       let
         pkgs = import nixpkgs { inherit system; };
         fhs = pkgs.buildFHSEnv {
-          name = "pixi-env";
+          name = "pixi";
 
           targetPkgs = _: [ pkgs.pixi ];
+
+          runScript = "fish";
         };
       in
       {

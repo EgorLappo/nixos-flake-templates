@@ -11,9 +11,10 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
+        ename = "pixi"
         pkgs = import nixpkgs { inherit system; };
         fhs = pkgs.buildFHSEnv {
-          name = "pixi";
+          inherit ename;
 
           targetPkgs = _: [ pkgs.pixi ];
 
@@ -21,7 +22,7 @@
         };
       in
       {
-        devShell = fhs.env;
+        devShell = fhs.env // { name = ename; };
       }
     );
 }

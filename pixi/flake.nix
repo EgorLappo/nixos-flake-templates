@@ -11,18 +11,18 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        ename = "pixi"
         pkgs = import nixpkgs { inherit system; };
         fhs = pkgs.buildFHSEnv {
-          inherit ename;
-
+          name = "pixi";
           targetPkgs = _: [ pkgs.pixi ];
 
           runScript = "fish";
         };
       in
       {
-        devShell = fhs.env // { name = ename; };
+        devShell = fhs.env // {
+          name = "pixi";
+        };
       }
     );
 }
